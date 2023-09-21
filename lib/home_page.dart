@@ -20,7 +20,24 @@ class HomePageState extends State<HomePage> {
         title: const Text("Home Page"),
         actions: [SwitchComponent()],
       ),
-      body: Center(child: SwitchComponent()),
+      body: Container(
+        //double.infinity pega o tamanho maximo da tela
+        width: double.infinity,
+        height: double.infinity,
+        child: Column(
+          //alinhamento vertical
+          mainAxisAlignment: MainAxisAlignment.center,
+          //alinhamento horizontal
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              "Contador $contado",
+              style: const TextStyle(fontSize: 25),
+            ),
+            SwitchComponent()
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
