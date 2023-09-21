@@ -1,6 +1,7 @@
 //os dois sao entendidos pela memoria do mesmo jeito, ou seja, nenhum dos dois metodos nn pesa na memoria
 //É possivel a alteracao de algumas coisas enquanto o aplicativo esta rodando
 import 'package:flutter/material.dart';
+import 'package:ola_mundo/app_controller.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -18,16 +19,12 @@ class HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Home Page"),
       ),
-      body: Container(
-        width: 100,
-        height: 100,
-        color: const Color.fromARGB(255, 56, 56, 56),
-        child: Center(
-          child: Container(
-            width: 50,
-            height: 50,
-            color: const Color.fromARGB(255, 8, 72, 124),
-          ),
+      body: Center(
+        child: Switch(
+          value: AppController.instance.isDarkTheme,
+          onChanged: (value) {
+            AppController.instance.changeTheme();
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
